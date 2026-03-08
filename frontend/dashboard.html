@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Orders Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>Orders Dashboard</h2>
+
+<button onclick="loadOrders()">Refresh Orders</button>
+
+<table border="1" id="ordersTable">
+<tr>
+<th>Shop</th>
+<th>Mobile</th>
+<th>Lassi</th>
+<th>Mattha</th>
+<th>Buttermilk</th>
+</tr>
+</table>
+
+<script>
+
+async function loadOrders() {
+
+    const response = await fetch("/api/getorders");
+
+    const orders = await response.json();
+
+    const table = document.getElementById("ordersTable");
+
+    table.innerHTML = `
+    <tr>
+        <th>Shop</th>
+        <th>Mobile</th>
+        <th>Lassi</th>
+        <th>Mattha</th>
+        <th>Buttermilk</th>
+    </tr>`;
+
+    orders.forEach(order => {
+
+        const row = table.insertRow();
+
+        row.insertCell(0).innerText = order.shopName;
+        row.insertCell(1).innerText = order.mobile;
+        row.insertCell(2).innerText = order.lassi;
+        row.insertCell(3).innerText = order.mattha;
+        row.insertCell(4).innerText = order.buttermilk;
+
+    });
+
+}
+
+window.onload = loadOrders;
+
+</script>
+
+</body>
+</html>

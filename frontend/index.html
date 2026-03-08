@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Kothari Distributor Orders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>Paras Sales</h2>
+
+<label>Shop Name</label>
+<input type="text" id="shopName" placeholder="Enter shop name">
+
+<label>Mobile Number</label>
+<input type="text" id="mobile" placeholder="Enter mobile number">
+
+<h3>Select Products</h3>
+
+<div class="product">
+    <span>Lassi (₹35/200ml)</span>
+    <input type="number" id="lassi" min="0" value="0">
+</div>
+
+<div class="product">
+    <span>Mattha (₹20/360ml)</span>
+    <input type="number" id="mattha" min="0" value="0">
+</div>
+
+<div class="product">
+    <span>Buttermilk (₹22/500ml)</span>
+    <input type="number" id="buttermilk" min="0" value="0">
+</div>
+
+<button type="button" onclick="placeOrder()">Place Order</button>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
